@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+    <link rel="stylesheet" href="{{ pathto('_static/semantic/semantic.min.css', 1) }}" type="text/css" />
+    <link rel="stylesheet" href="{{ pathto('_static/github.css', 1) }}" type="text/css" />
+    <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+</head>
+<body>
+    <div class="ui inverted menu">
+        <div class="container">
+            <a class="item" href="{{ pathto(master_doc) }}"><i class="home icon"></i> {{ project }}</a>
+            <div class="right menu">
+                <a class="item" href="{{ pathto(master_doc) }}"><i class="chevron left  icon"></i>Previous</a>
+                <a class="item" href="{{ pathto(master_doc) }}"><i class="chevron right  icon"></i>Next</a>
+            </div>
+        </div>
+    </div>
+    <div class="header segment">
+        <div class="container">
+            <h1>{{ title|striptags|e }}{{ titlesuffix }}</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div role="main" class="document">
+            <div class="full height">
+                <div class="ui close right rail">
+                    <div class="ui sticky" id="sidebar-menu">
+                        <div class="ui fluid vertical menu">
+                            {% block sidebartitle %}
+                            <div class="header item">
+                                <a href="{{ pathto(master_doc) }}"><i class="home icon"></i> {{ project }}</a>
+                            </div>
+                            {% endblock %}
+
+                            {%- if pagename != "search" %}
+                            <div class="item">
+                            <form action="{{ pathto('search') }}" method="get">
+                             <div class="ui input">
+                              <input type="text" name="q" class="form-control" placeholder="Search" />
+                             </div>
+                              <input type="hidden" name="check_keywords" value="yes" />
+                              <input type="hidden" name="area" value="default" />
+                            </form>
+                                </div>
+                            {%- endif %}
+
+
+                          </div>
+                        </div>
+                    </div>
+                <div id="content">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hidden-toc">
+        {{ toc  }}
+    </div>
+
+    <script type="text/javascript" src="{{ pathto('_static/semantic/jquery-1.11.2.min.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/semantic/semantic.min.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/docs.js', 1) }}"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+.container {
+    position: relative;
+    max-width: 950px;
+    width: 60%;
+    margin-left:120px;
+}
+
+.ui.menu {
+    margin: 0;
+}
+
+#sidebar-menu {
+    margin-top:1em;
+}
+
+#sidebar-menu form {
+    margin: 0;
+}
+
+#sidebar-menu form input {
+    width: 100%;
+}
+
+#hidden-doc {
+    display:none;
+    visibility:hidden;
+}
+
+.header {
+    background-color: #FFF;
+    border-bottom: 1px solid #DDD;
+}
+
+.header h1{
+    margin:0;
+    padding:1em;
+}
+
+
+.document {
+    background-color: #FFF;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    padding: 1em 3em;
+    min-height: 100%;
+}
+
+.document h1 {
+    display: none;
+}
+
+h2 a.headerlink, h3 a.headerlink , h4 a.headerlink, h5 a.headerlink, h6 a.headerlink   {
+    display:none;
+}
+
+h2:hover a.headerlink, h3:hover a.headerlink , h4:hover a.headerlink, h5:hover a.headerlink, h6:hover a.headerlink   {
+    display:inline-block;
+}
+
+.document a.footnote-reference {
+  vertical-align: super;
+  font-size: 75%;
+}
+
+.document pre {
+    border: 1px solid #DDD;
+    background :#F9F9F9;
+    border-radius: 2px;
+    padding: .5em;
+}
+
+.document .docutils.literal{
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    margin: 0 2px 0px 0px;
+    padding: 1px 4px;
+    vertical-align: baseline;
+    display: inline-block;
+    background-color: #F9F9F9;
+}
