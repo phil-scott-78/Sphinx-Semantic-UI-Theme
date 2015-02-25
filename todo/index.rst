@@ -10,13 +10,6 @@ Better Semantic Build Process
 -----------------------------
 Copy of the full semantic ui is being brought in right now. Like this to be brought in an build via Sass or something smarter
 
-Images
-------
-Images need to to have ``class="ui image"`` applied to theme. Right now they are overflowing their container
-
-Navigation
-----------
-Prev and Next aren't wired up. I'd like them to work, and use a `pop up <http://semantic-ui.com/modules/popup.html>`_ to display the link title
 
 Link Icon
 ---------
@@ -52,3 +45,8 @@ Navigation starts to break down for nest pages and with large documents
 Breadcrumbs
 -----------
 Need breadcrumbs
+
+Meta Tags
+---------
+Like to add the description meta tag under the title perhaps
+

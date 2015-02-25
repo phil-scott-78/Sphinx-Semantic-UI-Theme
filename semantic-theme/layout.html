@@ -1,22 +1,35 @@
 <html>
 <head>
+    <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 
     <link rel="stylesheet" href="{{ pathto('_static/semantic/semantic.min.css', 1) }}" type="text/css" />
     <link rel="stylesheet" href="{{ pathto('_static/github.css', 1) }}" type="text/css" />
     <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+
+
+    {# Silence the sidebar's, relbar's #}
+    {% block header %}{% endblock %}
+    {% block relbar1 %}{% endblock %}
+    {% block relbar2 %}{% endblock %}
+    {% block sidebarsourcelink %}{% endblock %}
 </head>
 <body>
     <div class="ui inverted menu">
         <div class="container">
             <a class="item" href="{{ pathto(master_doc) }}"><i class="home icon"></i> {{ project }}</a>
             <div class="right menu">
-                <a class="item" href="{{ pathto(master_doc) }}"><i class="chevron left  icon"></i>Previous</a>
-                <a class="item" href="{{ pathto(master_doc) }}"><i class="chevron right  icon"></i>Next</a>
+
+                {%- if prev %}
+                    <a class="item popup" href="{{ prev.link|e }}" data-content="{{ prev.title|striptags|e }}"><i class="chevron left  icon"></i>Prev</a>
+                {%- endif %}
+                {%- if next %}
+                    <a class="item popup" href="{{ next.link|e }}" data-content="{{ next.title|striptags|e }}"><i class="chevron right  icon"></i>Next</a>
+                {%- endif %}
             </div>
         </div>
     </div>
-    <div class="header segment">
+    <div class="main-header segment">
         <div class="container">
             <h1>{{ title|striptags|e }}{{ titlesuffix }}</h1>
         </div>
@@ -61,8 +74,11 @@
         {{ toc  }}
     </div>
 
-    <script type="text/javascript" src="{{ pathto('_static/semantic/jquery-1.11.2.min.js', 1) }}"></script>
+    <script type="text/javascript" src="{{ pathto('_static/jquery-1.11.2.min.js', 1) }}"></script>
     <script type="text/javascript" src="{{ pathto('_static/semantic/semantic.min.js', 1) }}"></script>
     <script type="text/javascript" src="{{ pathto('_static/docs.js', 1) }}"></script>
+
+    {%- block extrascript %}
+    {% endblock %}
 </body>
 </html>
